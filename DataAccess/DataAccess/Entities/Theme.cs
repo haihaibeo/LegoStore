@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Infrastructure.DataAccess.Entities
 {
@@ -11,7 +6,7 @@ namespace Infrastructure.DataAccess.Entities
     {
         public Theme()
         {
-            ProductThemes = new HashSet<LegoProductTheme>();
+            Products = new HashSet<LegoProduct>();
         }
 
         [Key]
@@ -20,6 +15,9 @@ namespace Infrastructure.DataAccess.Entities
 
         [StringLength(100)]
         public string ThemeName { get; set; }
-        public ICollection<LegoProductTheme> ProductThemes { get; set; }
+
+        public virtual ICollection<LegoProductTheme> ProductThemes { get; set; }
+
+        public virtual ICollection<LegoProduct> Products { get; set; }
     }
 }

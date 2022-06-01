@@ -1,4 +1,7 @@
 using Infrastructure;
+using Infrastructure.DataAccess.Context;
+using LegoStoreAPI.HotChocolate;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,9 +11,20 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-Dependencies.ConfigureServices(builder.Configuration, builder.Services);
-builder.Services.AddControllers();
 
+// Add EF Core
+builder.Services.AddDbContext<LegoContext>(c =>
+                    c.UseSqlServer(builder.Configuration.GetConnectionString("LegoDBCnn")));
+
+// Add HotChocolate
+builder.Services
+    .AddGraphQLServer()
+    .RegisterDbContext<LegoContext>()
+    .AddQueryType<GraphQLQuery>()
+    .AddFiltering()
+    .AddSorting()
+    .AddProjections()
+    .InitializeOnStartup();
 
 var app = builder.Build();
 
@@ -26,5 +40,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGraphQL();
 
 app.Run();

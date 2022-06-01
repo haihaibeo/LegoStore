@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.DataAccess.Entities
 {
@@ -35,6 +30,8 @@ namespace Infrastructure.DataAccess.Entities
 
         public int ProductStatusID { get; set; }
 
-        public ICollection<LegoProductTheme> ProductThemes { get; set; }
+        public virtual ICollection<LegoProductTheme> ProductThemes { get; set; }
+
+        public virtual ICollection<Theme> Themes { get; set; }
     }
 }
