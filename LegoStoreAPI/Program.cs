@@ -1,3 +1,4 @@
+using HotChocolate.Types.Pagination;
 using Infrastructure;
 using Infrastructure.DataAccess.Context;
 using LegoStoreAPI.HotChocolate;
@@ -24,6 +25,10 @@ builder.Services
     .AddFiltering()
     .AddSorting()
     .AddProjections()
+    .SetPagingOptions(new PagingOptions
+    {
+        IncludeTotalCount = true,
+    })
     .InitializeOnStartup();
 
 var app = builder.Build();

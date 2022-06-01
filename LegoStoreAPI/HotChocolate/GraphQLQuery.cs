@@ -6,28 +6,28 @@ namespace LegoStoreAPI.HotChocolate;
 
 public class GraphQLQuery
 {
-    //[UsePaging]
+    [UseOffsetPaging]
     [UseProjection]
     [UseFiltering]
     [UseSorting]
     public IQueryable<LegoProduct> GetLegoProducts([Service] LegoContext dbContext)
         => dbContext.LegoProducts.AsNoTracking();
 
-    //[UsePaging]
+    [UseOffsetPaging]
     [UseProjection]
     [UseFiltering]
     [UseSorting]
     public IQueryable<LegoProductStatus> GetLegoProductStatuses([Service] LegoContext dbContext)
         => dbContext.LegoProductStatuses.AsNoTracking();
 
-    //[UsePaging]
+    [UseOffsetPaging]
     [UseProjection]
     [UseFiltering]
     [UseSorting]
     public IQueryable<LegoProductTheme> GetLegoProductThemes([Service] LegoContext dbContext)
         => dbContext.LegoProductThemes.AsNoTracking();
 
-    //[UsePaging]
+    [UseOffsetPaging]
     [UseProjection]
     [UseFiltering]
     [UseSorting]
