@@ -30,7 +30,7 @@ public class GraphQLMutation
 
         if(theme == null)
         {
-            throw new NotFoundException(themeId.ToString(), $"Theme {themeId} not existesd");
+            throw new NotFoundException(themeId.ToString(), $"Theme {themeId} is not existed");
         }
 
         theme.ThemeName = themeName;
@@ -49,7 +49,7 @@ public class GraphQLMutation
 
         if (theme == null)
         {
-            throw new NotFoundException(themeId.ToString(), $"Theme {themeId} not existesd");
+            throw new NotFoundException(themeId.ToString(), $"Theme {themeId} is not existed");
         }
 
         dbContext.Remove(theme);
@@ -82,7 +82,7 @@ public class GraphQLMutation
 
         if (legoProductStatus == null)
         {
-            throw new NotFoundException(productStatusId.ToString(), $"LegoProductStatus {productStatusId} not existesd");
+            throw new NotFoundException(productStatusId.ToString(), $"LegoProductStatus {productStatusId} is not existed");
         }
 
         legoProductStatus.ProductStatusName = productStatusName;
@@ -101,7 +101,7 @@ public class GraphQLMutation
 
         if (legoProductStatus == null)
         {
-            throw new NotFoundException(productStatusId.ToString(), $"LegoProductStatus {productStatusId} not existesd");
+            throw new NotFoundException(productStatusId.ToString(), $"LegoProductStatus {productStatusId} is not existed");
         }
 
         dbContext.Remove(legoProductStatus);
@@ -141,7 +141,7 @@ public class GraphQLMutation
 
         if (legoProduct == null)
         {
-            throw new NotFoundException(productID, $"LegoProduct {productID} not existesd");
+            throw new NotFoundException(productID, $"LegoProduct {productID} is not existed");
         }
 
         legoProduct.ProductName = productName;
@@ -164,7 +164,7 @@ public class GraphQLMutation
 
         if (legoProduct == null)
         {
-            throw new NotFoundException(productID, $"LegoProduct {productID} not existesd");
+            throw new NotFoundException(productID, $"LegoProduct {productID} is not existed");
         }
 
         dbContext.Remove(legoProduct);
@@ -207,7 +207,7 @@ public class GraphQLMutation
 
         if (legoProductTheme == null)
         {
-            throw new NotFoundException(productThemeID, $"LegoProductTheme {productThemeID} not existesd");
+            throw new NotFoundException(productThemeID, $"LegoProductTheme {productThemeID} is not existed");
         }
 
         legoProductTheme.ProductID = productID;
