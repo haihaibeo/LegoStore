@@ -20,7 +20,7 @@ builder.Services.AddDbContext<LegoContext>(c =>
 // Add HotChocolate
 builder.Services
     .AddGraphQLServer()
-    .RegisterDbContext<LegoContext>()
+    .RegisterDbContext<LegoContext>(DbContextKind.Resolver)
     .AddQueryType<GraphQLQuery>()
     .AddFiltering()
     .AddSorting()
@@ -29,6 +29,9 @@ builder.Services
     {
         IncludeTotalCount = true,
     })
+    .AddMutationType<GraphQLMutation>()
+    .AddMutationConventions()
+    .AddDefaultTransactionScopeHandler()
     .InitializeOnStartup();
 
 var app = builder.Build();
