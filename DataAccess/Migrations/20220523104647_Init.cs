@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Infrastructure.DataAccess.Context;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -84,6 +85,7 @@ namespace Infrastructure.Migrations
                 name: "IX_LegoProductThemes_ThemeID",
                 table: "LegoProductThemes",
                 column: "ThemeID");
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

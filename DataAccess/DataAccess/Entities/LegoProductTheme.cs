@@ -20,6 +20,7 @@ namespace Infrastructure.DataAccess.Entities
         public int ThemeID { get; set; }
 
         public virtual LegoProduct Product { get; set; }
+
         public virtual Theme Theme { get; set; }
     }
 }
